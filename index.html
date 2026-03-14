@@ -137,10 +137,12 @@ question.innerText="I will be VERY sad 💔";
 else if(noCount>=5){
 question.innerText="Okay fine 😭 try to catch the No button!";
 runAway();
+noBtn.addEventListener("mouseover", runAway);
 }
 
 });
 
+}
 noBtn.addEventListener("touchstart",function(e){
 if(noCount>=5){
 e.preventDefault();
