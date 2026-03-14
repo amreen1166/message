@@ -57,6 +57,8 @@ background:#333;
 color:white;
 }
 
+/* floating hearts */
+
 .heart{
 position:fixed;
 font-size:20px;
@@ -99,6 +101,8 @@ const question=document.getElementById("question");
 let noCount=0;
 let yesSize=20;
 
+/* move No button */
+
 function runAway(){
 
 const maxX=window.innerWidth-noBtn.offsetWidth;
@@ -112,6 +116,12 @@ noBtn.style.left=randomX+"px";
 noBtn.style.top=randomY+"px";
 
 }
+
+/* Desktop behaviour (before click) */
+
+noBtn.addEventListener("mouseover", runAway);
+
+/* Mobile behaviour (after click) */
 
 noBtn.addEventListener("click",()=>{
 
@@ -137,18 +147,20 @@ question.innerText="I will be VERY sad 💔";
 else if(noCount>=5){
 question.innerText="Okay fine 😭 try to catch the No button!";
 runAway();
-noBtn.addEventListener("mouseover", runAway);
 }
 
 });
 
-}
+/* mobile touch support */
+
 noBtn.addEventListener("touchstart",function(e){
 if(noCount>=5){
 e.preventDefault();
 runAway();
 }
 });
+
+/* YES button */
 
 yesBtn.addEventListener("click",()=>{
 
@@ -161,6 +173,8 @@ document.querySelector(".buttons").style.display="none";
 confetti();
 
 });
+
+/* floating hearts */
 
 function createHeart(){
 
@@ -183,6 +197,8 @@ heart.remove();
 }
 
 setInterval(createHeart,300);
+
+/* confetti */
 
 function confetti(){
 
